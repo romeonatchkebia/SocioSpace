@@ -1,4 +1,4 @@
-# socialapp
+# SocioSpace
 
 ## Full Stack Project With:
 
