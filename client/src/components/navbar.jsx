@@ -1,17 +1,23 @@
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
-  MdOutlineLightMode,
+  MdLightMode,
   MdNotifications,
   MdMessage,
   MdHelp,
   MdSearch,
+  MdDarkMode,
 } from "react-icons/md";
+import { useSelector, useDispatch } from "react-redux";
+import { setMode } from "../state";
 
 const NavBar = () => {
+  const mode = useSelector((state) => state.mode);
+  const dispatch = useDispatch();
+
   return (
-    <div className="flex justify-between items-center pl-8 pr-8 pt-4 pb-4 bg-slate-200">
+    <div className="flex justify-between items-center pl-8 pr-8 pt-4 pb-4 bg-slate-200 dark:bg-slate-700 ">
       <div className="flex gap-8">
-        <div className="text-lg font-bold">
+        <div className="text-lg font-bold text-blue-500 hover:text-blue-300">
           <NavLink to="/home">SocioSpace</NavLink>
         </div>
 
@@ -25,8 +31,12 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className="flex justify-end gap-5 ">
-        <MdOutlineLightMode size={20} onClick={() => Navigate("/profile")} />
+      <div className="flex justify-end gap-5 dark:text-slate-100">
+        {mode === "light" ? (
+          <MdLightMode size={20} onClick={() => dispatch(setMode())} />
+        ) : (
+          <MdDarkMode size={20} onClick={() => dispatch(setMode())} />
+        )}
         <MdMessage size={20} />
         <MdNotifications size={20} />
         <MdHelp size={20} />
