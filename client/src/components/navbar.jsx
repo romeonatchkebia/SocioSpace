@@ -26,11 +26,11 @@ const NavBar = () => {
       </div>
 
       {width >= 1024 && (
-        <div className="flex items-center dark:text-darkModeText bg-lightModeBg dark:bg-darkModeInput rounded-md p-2 h-6 my-1 sm:h-10">
+        <div className="flex items-center dark:text-darkModeText bg-lightModeBg dark:bg-darkModeInput rounded-md p-2 my-1 h-10">
           <input
             type="text"
             placeholder="Search..."
-            className="w-44 sm:w-56 lg:w-80 focus:outline-none bg-lightModeBg dark:bg-darkModeInput text-xs"
+            className="w-96 focus:outline-none bg-lightModeBg dark:bg-darkModeInput text-xs"
           />
           <MdSearch
             cursor="pointer"
